@@ -1,0 +1,42 @@
+name: CI
+
+on:
+  push:
+    branches: [master]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Use Node.js 14.x
+        uses: actions/setup-node@v2
+        with:
+          node-version: 14.x
+      - name: Install package
+        run: npm install&& npm run docs:build
+
+  deploy:
+    env:
+      PUBLISH_DIR: docs/.vuepress/dist
+      GITHUB_REPOSITORY: Tomoyd/blog
+    runs-on: ubuntu-latest
+    environment:
+      name: production
+      url: https://tomoyd.github.io/blog/
+    steps:
+      - uses: actions/checkout@v2
+      - name: Deploy
+        run: |
+          cd $PUBLISH_DIR
+          cd 
+
+          git init
+          git add -A
+          git commit -m 'deploy'
+
+          # 如果发布到 https://<USERNAME>.github.io/<REPO>
+          git push -f git@github.com:Tomoyd/blog.git master:gh-pages
+
+          cd -
+          echo 🤘 deploy gh-pages complete.
