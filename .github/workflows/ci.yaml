@@ -7,6 +7,7 @@ on:
 jobs:
   build:
     env:
+      MY_SECRET: ${{secrets.TOKEN}}
       PUBLISH_DIR: docs/.vuepress/dist
     environment:
       name: production
@@ -22,11 +23,11 @@ jobs:
         run: |
           npm install  
           npm run docs:build
+
       - name: Deploy
-        run: |
           cd $PUBLISH_DIR
           git init
-          git remote add origin https://github.com/Tomoyd/blog.git
+          git remote add origin https://$MY_SECRET@github.com/Tomoyd/blog.git
           git config user.name 'Tomoyd'
           git config user.email '${{secrets.USER_EMAIL}}'
           git checkout -b gh-pages
