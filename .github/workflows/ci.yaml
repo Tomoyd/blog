@@ -25,6 +25,7 @@ jobs:
           npm run docs:build
 
       - name: Deploy
+        run: |
           cd $PUBLISH_DIR
           git init
           git remote add origin https://$MY_SECRET@github.com/Tomoyd/blog.git
