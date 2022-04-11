@@ -14,11 +14,13 @@ jobs:
         with:
           node-version: 14.x
       - name: Install package
-        run: npm install&& npm run docs:build
+        run: |
+          npm install  
+          npm run docs:build
 
   deploy:
     env:
-      PUBLISH_DIR: docs/.vuepress/dist
+      PUBLISH_DIR: ./docs/.vuepress/dist
       GITHUB_REPOSITORY: Tomoyd/blog
     runs-on: ubuntu-latest
     environment:
