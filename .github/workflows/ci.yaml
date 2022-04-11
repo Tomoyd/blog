@@ -27,6 +27,8 @@ jobs:
           cd $PUBLISH_DIR
           git init
           git add -A
+          git config user.name 'github-actions[bot]'
+          git config user.email 'github-actions[bot]@users.noreply.github.com'
           git commit -m 'deploy'
 
           git push -f git@github.com:Tomoyd/blog.git master:gh-pages
