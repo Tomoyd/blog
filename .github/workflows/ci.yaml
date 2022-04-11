@@ -29,8 +29,6 @@ jobs:
       - name: Deploy
         run: |
           cd $PUBLISH_DIR
-          cd 
-
           git init
           git add -A
           git commit -m 'deploy'
