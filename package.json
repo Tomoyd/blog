@@ -1,0 +1,29 @@
+{
+  "name": "vuepress-blog",
+  "version": "1.0.0",
+  "description": "我的vuepress博客",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "vuepress dev docs",
+    "docs:build": "vuepress build docs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Tomoyd/blog.git"
+  },
+  "keywords": [
+    "blog",
+    "vuepress"
+  ],
+  "author": "tomoyd",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Tomoyd/blog/issues"
+  },
+  "homepage": "https://github.com/Tomoyd/blog#readme",
+  "devDependencies": {
+    "vuepress": "^1.9.7",
+    "vuepress-theme-reco": "^1.6.11"
+  }
+}
