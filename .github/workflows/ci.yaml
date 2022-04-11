@@ -23,6 +23,7 @@ jobs:
       PUBLISH_DIR: ./docs/.vuepress/dist
       GITHUB_REPOSITORY: Tomoyd/blog
     runs-on: ubuntu-latest
+    needs: build
     environment:
       name: production
       url: https://tomoyd.github.io/blog/
