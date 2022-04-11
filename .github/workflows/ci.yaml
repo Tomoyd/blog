@@ -27,8 +27,8 @@ jobs:
           cd $PUBLISH_DIR
           git init
           git remote add origin https://github.com/Tomoyd/blog.git
-          git config user.name 'github-actions[bot]'
-          git config user.email 'github-actions[bot]@users.noreply.github.com'
+          git config user.name 'Tomoyd'
+          git config user.email '${{secrets.USER_EMAIL}}'
           git checkout -b gh-pages
           git add -A
           git commit -m 'deploy'
