@@ -6,6 +6,11 @@ on:
 
 jobs:
   build:
+    env:
+      PUBLISH_DIR: docs/.vuepress/dist
+    environment:
+      name: production
+      url: https://tomoyd.github.io/blog/
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -17,26 +22,11 @@ jobs:
         run: |
           npm install  
           npm run docs:build
-
-  deploy:
-    env:
-      PUBLISH_DIR: docs/.vuepress/dist
-    runs-on: ubuntu-latest
-    needs: build
-    environment:
-      name: production
-      url: https://tomoyd.github.io/blog/
-    steps:
-      - uses: actions/checkout@v2
       - name: Deploy
-        run: |
           cd $PUBLISH_DIR
           git init
           git add -A
           git commit -m 'deploy'
 
-          # 如果发布到 https://<USERNAME>.github.io/<REPO>
           git push -f git@github.com:Tomoyd/blog.git master:gh-pages
-
-          cd -
           echo 🤘 deploy gh-pages complete.
