@@ -26,10 +26,10 @@ jobs:
         run: |
           cd $PUBLISH_DIR
           git init
-          git add -A
           git config user.name 'github-actions[bot]'
           git config user.email 'github-actions[bot]@users.noreply.github.com'
+          git remote add origin https://github.com/Tomoyd/blog.git
+          git checkout -b gh-pages
+          git add -A
           git commit -m 'deploy'
-
-          git push -f git@github.com:Tomoyd/blog.git master:gh-pages
           echo 🤘 deploy gh-pages complete.
