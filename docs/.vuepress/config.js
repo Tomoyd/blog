@@ -1,3 +1,5 @@
+const moment = require('moment');
+
 /**
  * @typedef { import("vuepress/config").DefaultThemeConfig } DefaultThemeConfig
  * @type { import("vuepress/config").Config<DefaultThemeConfig> }
@@ -22,7 +24,25 @@ module.exports = {
     },
   },
   theme: 'reco',
+  plugins: [
+    [
+      '@vuepress/last-updated',
+      {
+        transformer: (timestamp, lang) => {
+          moment.locale(lang);
+          return moment(timestamp).fromNow();
+        },
+      },
+    ],
+    [
+      '@vuepress/search',
+      {
+        searchMaxSuggestions: 10,
+      },
+    ],
+  ],
   themeConfig: {
+    lastUpdated: '上次更新',
     nav: [
       { text: '首页', link: '/' },
       {
