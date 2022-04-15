@@ -38,6 +38,15 @@ module.exports = {
   },
   theme: 'reco',
   plugins: [
+    (options, ctx) => {
+      return {
+        name: 'vuepress-plugin-code-try',
+        clientRootMixin: path.resolve(
+          __dirname,
+          'vuepress-plugin-code-try/index.js',
+        ),
+      };
+    },
     [
       '@vuepress/last-updated',
       {
@@ -76,5 +85,27 @@ module.exports = {
         ],
       },
     ],
+  },
+  markdown: {
+    // markdown-it-anchor 的选项
+    anchor: { permalink: false },
+    // markdown-it-toc 的选项
+    toc: { includeLevel: [1, 2] },
+
+    extendMarkdown: (md) => {
+      md.use(function (md) {
+        const fence = md.renderer.rules.fence;
+        md.renderer.rules.fence = (...args) => {
+          let rawCode = fence(...args);
+          if (rawCode.includes('try-link=https')) {
+            rawCode = rawCode.replace(
+              /<span class="token comment">\/\/ try-link=https:\/\/(.*)<\/span>\n/gi,
+              '<a href="$1" class="try-button" target="_blank">Try</a>',
+            );
+          }
+          return `${rawCode}`;
+        };
+      });
+    },
   },
 };
