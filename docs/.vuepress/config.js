@@ -1,4 +1,5 @@
 const moment = require('moment');
+const routes = require('../routes');
 
 /**
  * @typedef { import("vuepress/config").DefaultThemeConfig } DefaultThemeConfig
@@ -72,19 +73,7 @@ module.exports = {
         items: [{ text: 'Github', link: 'https://github.com/tomoyd' }],
       },
     ],
-    sidebar: [
-      {
-        title: '深入CSS',
-        collapsable: false,
-        path: '/',
-        children: [
-          {
-            title: 'BFC',
-            path: '/css/BFC',
-          },
-        ],
-      },
-    ],
+    sidebar: routes,
   },
   markdown: {
     // markdown-it-anchor 的选项
