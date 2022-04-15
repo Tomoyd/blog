@@ -10,6 +10,19 @@ module.exports = {
   head: [
     ['link', { rel: 'icon', href: '/asset/logo.jpg' }],
     [
+      'script',
+      {},
+      `
+          var _hmt = _hmt || [];
+          (function() {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?aed7d99443c8742447879b147243186d";
+            var s = document.getElementsByTagName("script")[0]; 
+            s.parentNode.insertBefore(hm, s);
+          })();
+          </script>`,
+    ],
+    [
       'meta',
       {
         name: 'viewport',
