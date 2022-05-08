@@ -6,7 +6,7 @@ const routes = require('../routes');
  * @type { import("vuepress/config").Config<DefaultThemeConfig> }
  */
 module.exports = {
-  title: "Tomo's文档",
+  title: "Tomo's前端",
   description: '前端文档blog',
   head: [
     ['link', { rel: 'icon', href: '/asset/logo.jpg' }],
@@ -69,7 +69,7 @@ module.exports = {
     nav: [
       { text: '首页', link: '/' },
       {
-        text: 'Tomo的前端文档',
+        text: 'Tomo的前端',
         items: [{ text: 'Github', link: 'https://github.com/tomoyd' }],
       },
     ],

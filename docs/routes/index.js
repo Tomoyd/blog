@@ -1,6 +1,6 @@
 module.exports = [
   {
-    title: '深入CSS',
+    title: 'Tomo的前端',
     collapsable: false,
     path: '/',
     children: [
@@ -9,8 +9,22 @@ module.exports = [
         path: '/',
       },
       {
-        title: 'BFC',
-        path: '/css/BFC',
+        title: '深入react',
+        path: '/react/',
+        children: [
+          {
+            title: '前言',
+            path: '/react/',
+          },
+          {
+            title: '运行机制',
+            path: '/react/loop',
+          },
+          {
+            title: '主要对象',
+            path: '/react/main-obj',
+          },
+        ],
       },
     ],
   },
